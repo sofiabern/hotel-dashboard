@@ -5,9 +5,8 @@
 }
 
 .check-in-card__buttons {
-  padding: 6px 0 6px 0;
-  width: 64px;
-  font-size: 14px;
+  padding: 6px 6px 6px 6px;
+  font-size: 16px;
   color: #ffffff;
   background-color: #000000;
   border: 1px solid #000000;

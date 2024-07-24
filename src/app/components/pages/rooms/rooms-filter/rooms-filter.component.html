@@ -1,13 +1,26 @@
-<form #filterForm="ngForm" (ngSubmit)="onSubmit()" class="rooms__date-wrapper">
-  <mat-form-field class="rooms__field" appearance="outline">
-    <mat-label>Enter dates</mat-label>
-    <mat-date-range-input [rangePicker]="picker">
-      <input matStartDate placeholder="Check-in" [(ngModel)]="startDate" name="startDate">
-      <input matEndDate placeholder="Check-out" [(ngModel)]="endDate" name="endDate">
-    </mat-date-range-input>
-    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
-    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-date-range-picker #picker></mat-date-range-picker>
-  </mat-form-field>
-  <button class="rooms__filter-button" type="submit">Search</button>
+<form #filterForm="ngForm" (ngSubmit)="applyFilter()" class="rooms__filter-form">
+  <div class="rooms__fields-wrapper">
+    <mat-form-field class="rooms__field" appearance="outline">
+      <mat-label>Enter dates</mat-label>
+      <mat-date-range-input [rangePicker]="picker">
+        <input required matStartDate placeholder="Check-in" [(ngModel)]="startDate" name="startDate">
+        <input required matEndDate placeholder="Check-out" [(ngModel)]="endDate" name="endDate">
+      </mat-date-range-input>
+      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+     <mat-form-field class="rooms__field" appearance="outline">
+      <mat-label>Comfort Level</mat-label>
+      <mat-select [(ngModel)]="comfortLevel" name="comfortLevel">
+        <mat-option value="standard">Standard</mat-option>
+        <mat-option value="junior suite">Junior Suite</mat-option>
+        <mat-option value="suite">Suite</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="rooms__filter-buttons">
+    <button class="rooms__filter-button rooms__search-button" type="submit" [disabled]="!filterForm.valid">Search</button>
+    <button class="rooms__filter-button rooms__show-button" (click)="resetFilter()">Show all</button>
+  </div>
 </form>

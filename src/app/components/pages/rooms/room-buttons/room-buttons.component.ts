@@ -23,7 +23,6 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrl: './room-buttons.component.css'
 })
 export class RoomButtonsComponent {
-
   @Input() room!: Room;
 
   constructor(
@@ -35,12 +34,13 @@ export class RoomButtonsComponent {
     const dialogBookRef = this.dialog.open(BookModalComponent, {
       disableClose: false,
       autoFocus: false,
-      data: {room}
+      data: { room }
     });
 
     dialogBookRef.afterClosed().subscribe(result => {
       if (result) {
-        this.roomsService.fetchRooms();
+        const { startDate, endDate, comfortLevel } = this.roomsService.getFilterState();
+        this.roomsService.fetchRooms(startDate, endDate, comfortLevel);
       }
     });
   }
@@ -54,7 +54,8 @@ export class RoomButtonsComponent {
 
     dialogCheckInRef.afterClosed().subscribe(result => {
       if (result) {
-        this.roomsService.fetchRooms();
+        const { startDate, endDate, comfortLevel } = this.roomsService.getFilterState();
+        this.roomsService.fetchRooms(startDate, endDate, comfortLevel);
       }
     });
   }
