@@ -21,13 +21,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { provideNativeDateAdapter } from '@angular/material/core';
 
-
 // Etc
 import { ToastrService } from 'ngx-toastr';
-import { isBefore, isAfter, isEqual } from 'date-fns';
-
-
-
+import { calculateTotalDiscountAndPrice, checkDateIntersection } from '../../../utils/checkInBookingCreation';
 
 @Component({
   selector: 'app-book-modal',
@@ -48,7 +44,6 @@ import { isBefore, isAfter, isEqual } from 'date-fns';
   providers: [provideNativeDateAdapter()],
 })
 export class BookModalComponent {
-
   visitsAmount!: number;
   totalDiscount: number = 0;
   discounts = {
@@ -58,15 +53,20 @@ export class BookModalComponent {
   };
   totalDayPrice: number = this.data.room.price;
   totalPrice!: number;
-  passportNumber!: string
+  passportNumber!: string;
   startDate!: Date;
   endDate!: Date;
   discountChecked: boolean = false;
-  constructor(public dialogRef: MatDialogRef<BookModalComponent>, private clientsApiService: ClientsApiService, @Inject(MAT_DIALOG_DATA) public data: { room: Room }, private checkInsBookingsApiService: CheckInsBookingsApiService, private toastr: ToastrService) { }
 
+  constructor(
+    public dialogRef: MatDialogRef<BookModalComponent>,
+    private clientsApiService: ClientsApiService,
+    @Inject(MAT_DIALOG_DATA) public data: { room: Room },
+    private checkInsBookingsApiService: CheckInsBookingsApiService,
+    private toastr: ToastrService
+  ) { }
 
   submitForm(bookForm: NgForm): void {
-
     if (!this.discountChecked) {
       this.toastr.error('Please fill all required fields marked by * and check discount.');
       return;
@@ -74,58 +74,36 @@ export class BookModalComponent {
 
     const { firstName, lastName, passportNumber, comment, middleName } = bookForm.value;
 
-    if (!firstName.trim() || !lastName.trim() || !passportNumber.trim()) {
-      this.toastr.error('Fields cannot contain only spaces.');
+    if (!firstName.trim() || !lastName.trim() || !passportNumber.trim() ) {
+      this.toastr.error('Fields cannot contain only spaces or be empty.');
       return;
     }
 
     if (bookForm.valid) {
-
-      const hasIntersection = this.data.room.bookingsAndCheckIns.some((item) => {
-        const bookingCheckInDate = new Date(item.check_in_date);
-        const bookingCheckOutDate = new Date(item.check_out_date);
-        return (
-          (isBefore(this.startDate, bookingCheckOutDate) && isAfter(this.endDate, bookingCheckInDate)) ||
-          isEqual(this.startDate, bookingCheckInDate) ||
-          isEqual(this.endDate, bookingCheckOutDate) ||
-          isEqual(this.endDate, bookingCheckInDate) ||
-          isEqual(this.startDate, bookingCheckOutDate) ||
-          (isBefore(this.startDate, bookingCheckOutDate) && isAfter(this.startDate, bookingCheckInDate)) ||
-          (isBefore(this.endDate, bookingCheckOutDate) && isAfter(this.endDate, bookingCheckInDate))
-        );
-      });
-
+      const hasIntersection = checkDateIntersection(this.startDate, this.endDate, this.data.room.bookingsAndCheckIns, this.toastr);
       if (hasIntersection) {
-        this.toastr.error('Selected dates intersect with existing bookings or check-ins. Please filter rooms before choosing.');
         return;
       }
 
       const bookData: CheckInAndBookingData = {
-        last_name: lastName,
-        first_name: firstName,
-        passport_details: this.passportNumber,
+        last_name: lastName.trim(),
+        first_name: firstName.trim(),
+        passport_details: this.passportNumber.trim(),
         room: this.data.room._id,
         check_in_date: this.startDate,
         check_out_date: this.endDate,
         isCheckIn: false,
-        discounts: {
-          regularCustomer: this.discounts.regularCustomer,
-          military: this.discounts.military,
-          guardian: this.discounts.guardian
-        },
-        totalDiscount: this.totalDiscount,
-        totalDayPrice: this.totalDayPrice,
-        totalPrice: this.totalPrice
+        discounts: { ...this.discounts },
+        ...calculateTotalDiscountAndPrice(this.discounts, this.data.room.price, this.startDate, this.endDate)
       };
 
-      if (comment) {
+      if (comment.trim()) {
         bookData.comment = comment;
       }
 
-      if (middleName) {
-        bookData.middle_name = middleName
+      if (middleName.trim()) {
+        bookData.middle_name = middleName;
       }
-
 
       this.checkInsBookingsApiService.createCheckIn(bookData).subscribe({
         next: () => {
@@ -133,7 +111,7 @@ export class BookModalComponent {
           this.toastr.success('Booking created successfully!');
         },
         error: (error) => {
-          console.error(error)
+          console.error(error);
           this.toastr.error('Failed to create booking.');
         }
       });
@@ -170,17 +148,17 @@ export class BookModalComponent {
         this.discounts.guardian = isChecked ? 10 : 0;
         break;
     }
-    this.calculateTotalDiscountAndPrice();
+    this.updateTotalPrices();
+  }
+
+  updateTotalPrices(): void {
+    const { totalDiscount, totalDayPrice, totalPrice } = calculateTotalDiscountAndPrice(this.discounts, this.data.room.price, this.startDate, this.endDate);
+    this.totalDiscount = totalDiscount;
+    this.totalDayPrice = totalDayPrice;
+    this.totalPrice = totalPrice;
   }
 
   calculateTotalDiscountAndPrice(): void {
-    this.totalDiscount = this.discounts.regularCustomer + this.discounts.military + this.discounts.guardian;
-    this.totalDayPrice = this.totalDiscount ? Math.round(this.data.room.price * (1 - this.totalDiscount / 100)) : this.data.room.price;
-
-    if (this.startDate && this.endDate) {
-      const difference = this.endDate.getTime() - this.startDate.getTime();
-      const days = Math.ceil(difference / (1000 * 60 * 60 * 24));
-      this.totalPrice = this.totalDayPrice * days;
-    }
+    this.updateTotalPrices();
   }
 }
