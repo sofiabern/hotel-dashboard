@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-// Types
-import { CheckInBooking } from '../check-ins-bookings.types';
-
 // Services
 import { CheckInsBookingsService } from '../check-ins-bookings.service';
 
-// Modal
+// Material
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
@@ -35,8 +32,6 @@ export class CheckInsBookingsFilterComponent implements OnInit {
   }
 
   resetFilter() {
-    this.searchTerm = '';
-    this.checkInsBookingsService.setFilter(''); 
-    this.checkInsBookingsService.fetchCheckIns(1, 6);
+    window.location.reload();
   }
 }

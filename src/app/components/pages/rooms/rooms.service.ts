@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, map  } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 
 // Types
 import { Room } from './rooms.types';

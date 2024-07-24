@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 // Services
 import { ClientsService } from '../clients.service';
 
-// Etc
+// Material
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
@@ -34,8 +34,6 @@ export class ClientsFilterComponent implements OnInit{
   }
 
   resetFilter() {
-    this.searchTerm = '';
-    this.clientsService.setFilter('');
-    this.clientsService.fetchClients(1, 6);
+    window.location.reload();
   }
 }

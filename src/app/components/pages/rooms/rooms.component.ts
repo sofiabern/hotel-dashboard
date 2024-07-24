@@ -12,7 +12,7 @@ import { RoomsService } from './rooms.service';
 // Types
 import { Room } from './rooms.types';
 
-// Etc
+// Material
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 

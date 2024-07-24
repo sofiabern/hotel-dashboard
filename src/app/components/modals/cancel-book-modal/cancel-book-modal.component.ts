@@ -3,7 +3,7 @@ import { Component, Inject } from '@angular/core';
 // Services
 import { CheckInsBookingsService } from '../../pages/check-ins-bookings/check-ins-bookings.service';
 
-// Modal
+// Material
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 

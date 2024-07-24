@@ -10,7 +10,7 @@ import { Room } from '../rooms.types';
 // Services
 import { RoomsService } from '../rooms.service';
 
-// Modal
+// Material
 import { MatDialog } from '@angular/material/dialog';
 
 

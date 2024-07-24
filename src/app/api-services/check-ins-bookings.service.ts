@@ -3,7 +3,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 // Types
-import { CheckInBooking, CheckInsBookingsApiResponse, CheckInAndBookingData, CheckInBookingApiResponse, CheckInsBookingsPaginationApiResponse } from '../components/pages/check-ins-bookings/check-ins-bookings.types';
+import { CheckInBooking,  CheckInAndBookingData, CheckInBookingApiResponse, CheckInsBookingsPaginationApiResponse } from '../components/pages/check-ins-bookings/check-ins-bookings.types';
 
 
 

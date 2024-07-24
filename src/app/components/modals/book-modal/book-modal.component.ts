@@ -10,7 +10,7 @@ import { CheckInsBookingsApiService } from '../../../api-services/check-ins-book
 import { Room } from '../../pages/rooms/rooms.types';
 import { CheckInAndBookingData } from '../../pages/check-ins-bookings/check-ins-bookings.types';
 
-// Modal
+// Material
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -18,12 +18,14 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
+import { provideNativeDateAdapter } from '@angular/material/core';
+
 
 // Etc
 import { ToastrService } from 'ngx-toastr';
 import { isBefore, isAfter, isEqual } from 'date-fns';
-import { provideNativeDateAdapter } from '@angular/material/core';
-import { MatIconModule } from '@angular/material/icon';
+
 
 
 

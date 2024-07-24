@@ -5,7 +5,7 @@ import { catchError, tap, switchMap } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
 // Types
-import { User, SignupApiResponse, LoginApiResponse, LogoutApiResponse } from './user.types';
+import { User, SignupApiResponse, LoginApiResponse } from './user.types';
 
 // Etc
 import { ToastrService } from 'ngx-toastr';

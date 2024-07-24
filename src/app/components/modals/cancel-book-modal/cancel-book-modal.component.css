@@ -38,8 +38,8 @@
   color: #ffffff;
 }
 
-@media (max-width: 347.9px) {
-  ::ng-deep .mdc-dialog--open .mat-mdc-dialog-surface {
+@media (max-width: 657.9px) {
+  ::ng-deep.mdc-dialog--open .mat-mdc-dialog-surface {
     width: 92%;
   }
 }

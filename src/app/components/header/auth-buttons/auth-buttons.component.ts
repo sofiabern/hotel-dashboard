@@ -10,10 +10,8 @@ import { LogInModalComponent } from '../../modals/log-in-modal/log-in-modal.comp
 // Services
 import { AuthApiService } from '../../../auth/auth.service';
 
-// Modal
+// Material
 import { MatDialog } from '@angular/material/dialog';
-
-// Etc
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 

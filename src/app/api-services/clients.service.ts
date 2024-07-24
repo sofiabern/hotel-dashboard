@@ -3,7 +3,7 @@ import { HttpClient, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 // Types
-import { ClientsApiResponse, VisitsApiResponse, PassportDetails, ClientsPaginationApiResponse } from '../components/pages/clients/clients.types';
+import {  VisitsApiResponse, PassportDetails, ClientsPaginationApiResponse } from '../components/pages/clients/clients.types';
 
 
 
