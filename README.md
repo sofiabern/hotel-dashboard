@@ -1,26 +1,59 @@
-# Hotel Management Dashboard Project
+# Hotel Management Dashboard Frontend
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.6.
+This project is the frontend for the Hotel Management Dashboard. It is built using Angular and provides an interface for managing hotel operations, including booking rooms, checking in clients, and etc.
 
-## Development server
+## Table of Contents
+- [Demo](#demo)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Build](#build)
+- [License](#license)
+- [Further Help](#further-help)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Demo
+You can access the live demo of the application here: [Hotel Management Dashboard Frontend](hhttps://hotel-dashboard-iota.vercel.app/)
 
-## Code scaffolding
+## Features
+- **User Authentication:** Login and registration for hotel staff.
+- **Check-ins Management:** Add, update, and delete check-ins information.
+- **Booking System:** Create and manage room bookings.
+- **Search and Filters:** Search for clients, check-ins and etc, and filter them by various criteria.
+- **Discount System:** Track the number of visits for guests to offer applicable discounts.
+- **Responsive Design:** Optimized for desktop, tablet and mobile devices.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Getting Started
+
+To run the project locally, follow these steps:
+
+1. **Clone the repository**
+    ```sh
+    git clone https://github.com/sofiabern/hotel-dashboard.git
+    ```
+
+2. **Navigate to the project directory**
+    ```sh
+    cd hotel-dashboard
+    ```
+
+3. **Install dependencies**
+    ```sh
+    npm install
+    ```
+
+4. **Run the application**
+    ```sh
+    npm start
+    ```
+
+   The application will be available at `http://localhost:4200` by default.
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+## License
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Further help
 
