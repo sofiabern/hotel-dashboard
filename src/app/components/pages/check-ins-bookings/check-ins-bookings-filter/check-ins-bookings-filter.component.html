@@ -1,0 +1,19 @@
+<form class="check-ins__filter-container" (ngSubmit)="applyFilter()" #filterForm="ngForm">
+  <mat-form-field appearance="outline" class="check-ins__filter-field">
+    <mat-label>Search</mat-label>
+    <input
+      matInput
+      required
+      type="text"
+      [(ngModel)]="searchTerm"
+      name="searchTerm"
+      #searchInput="ngModel"
+      placeholder="Search by name or room number"
+      class="check-ins__filter"
+    />
+  </mat-form-field>
+  <div class="check-ins__buttons-wrapper">
+    <button type="submit" class="check-ins__button check-ins__filter-button" [disabled]="!filterForm.valid">Search</button>
+    <button type="button" (click)="resetFilter()" class="check-ins__button check-ins__show-button">Show All</button>
+  </div>
+</form>
