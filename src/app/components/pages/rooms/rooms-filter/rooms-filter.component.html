@@ -1,0 +1,13 @@
+<form #filterForm="ngForm" (ngSubmit)="onSubmit()" class="rooms__date-wrapper">
+  <mat-form-field class="rooms__field" appearance="outline">
+    <mat-label>Enter dates</mat-label>
+    <mat-date-range-input [rangePicker]="picker">
+      <input matStartDate placeholder="Check-in" [(ngModel)]="startDate" name="startDate">
+      <input matEndDate placeholder="Check-out" [(ngModel)]="endDate" name="endDate">
+    </mat-date-range-input>
+    <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-date-range-picker #picker></mat-date-range-picker>
+  </mat-form-field>
+  <button class="rooms__filter-button" type="submit">Search</button>
+</form>

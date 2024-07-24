@@ -1,0 +1,14 @@
+.rooms {
+  padding: 0 0 32px 0;
+}
+
+.rooms__title {
+  margin-bottom: 12px;
+}
+
+.rooms__loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

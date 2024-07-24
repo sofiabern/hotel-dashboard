@@ -1,0 +1,19 @@
+.room-card__btn-wrapper{
+  display: flex;
+  justify-content: space-between;
+  }
+
+.room-card__button {
+    padding: 6px 8px 6px 8px;
+    transition: all 0.3s;
+    font-size: 14px;
+    color: #000000;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+  }
+  
+  .room-card__button:hover {
+    background-color: #62ae62;
+    border-color: #62ae62;
+    color: #ffffff;
+  }

@@ -1,0 +1,21 @@
+.rooms__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  
+  @media(min-width:768px){
+    .rooms__list {
+      gap: 24px;
+    }
+  }
+  
+  .rooms__list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  
+  
