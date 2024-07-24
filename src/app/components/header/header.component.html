@@ -1,0 +1,28 @@
+<header class="header">
+  <div class="header__container container">
+
+    <div class="header__brand">
+      <a class="header__logo" routerLink="/">Serenity Hotel</a>
+    </div>
+
+    @if(isAuthenticated$ | async){
+    <app-nav-menu />
+    }
+
+    <app-user-greeting class="user-greeting" />
+
+    <app-auth-buttons />
+
+    @if(isAuthenticated$ | async){
+    <button class="header__menu-btn" (click)="openMobileMenu()">
+      <mat-icon aria-hidden="false" aria-label="Burger menu icon" fontIcon="menu"></mat-icon>
+    </button>
+    }
+
+  </div>
+
+  @if(isAuthenticated$ | async){
+  <app-mobile-nav-menu [isMobileMenuOpen]="isMobileMenuOpen" (closeMenu)="closeMobileMenu()" />
+  }
+
+</header>

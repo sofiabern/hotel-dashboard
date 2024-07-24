@@ -1,0 +1,7 @@
+<ul class="check-ins__list">
+  @for(checkInBooking of checkInsBookings; track checkInBooking._id){
+
+  <app-check-in-booking-card [checkInBooking]="checkInBooking"/>
+  }
+
+</ul>

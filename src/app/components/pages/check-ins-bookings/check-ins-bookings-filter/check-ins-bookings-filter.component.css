@@ -1,0 +1,93 @@
+:host {
+  display: block;
+  margin-bottom: 24px;
+}
+
+.check-ins__filter-container{
+  display: flex;
+  gap: 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media(min-width:576px){
+  .check-ins__filter-container{
+    flex-direction: row;
+    align-items: stretch;
+    gap: 16px
+  }
+}
+
+
+.check-ins__filter-field ::ng-deep.mat-mdc-text-field-wrapper {
+  display: block;
+}
+
+@media(max-width:319.9px){
+  .check-ins__filter-field ::ng-deep.mat-mdc-text-field-wrapper {
+    width: 224px;
+  }
+}
+
+@media(min-width:320px){
+  .check-ins__filter-field ::ng-deep.mat-mdc-text-field-wrapper {
+    width: 286px;
+  }
+}
+
+@media(min-width:468px){
+  .check-ins__filter-field ::ng-deep.mat-mdc-text-field-wrapper {
+    width: 296px;
+  }
+}
+
+.check-ins__filter::placeholder {
+  font-size: 14px;
+}
+
+
+@media(min-width:468px){
+  .check-ins__filter::placeholder {
+    font-size: 16px;
+  }
+
+}
+
+
+
+.check-ins__buttons-wrapper{
+  display: flex;
+  gap: 12px;
+
+}
+
+.check-ins__button{
+  padding: 6px 8px 6px 8px;
+  transition: all 0.3s ease-in-out;
+  border-radius: 24px;
+}
+
+@media (min-width: 768px){
+  .check-ins__button  {
+    font-size: 18px;
+  }
+  }
+
+.check-ins__filter-button{
+  color: #000000;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+}
+
+.check-ins__show-button {
+  color: #ffffff;
+  background-color: #000000;
+  border: 1px solid #000000;
+}
+
+.check-ins__button:hover {
+  background-color: #62ae62;
+  border-color: #62ae62;
+  color: #ffffff;
+}

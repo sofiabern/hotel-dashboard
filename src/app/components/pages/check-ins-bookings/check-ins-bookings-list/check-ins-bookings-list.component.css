@@ -1,0 +1,12 @@
+:host{
+  display: block;
+  margin-top: 24px;
+}
+
+.check-ins__list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+

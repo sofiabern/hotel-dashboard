@@ -1,0 +1,31 @@
+.room-card {
+    border: 1px solid #000000;
+    border-radius: 24px;
+    overflow: hidden
+  }
+  
+  .room-image {
+    width: 160px;
+    height: 120px;
+    object-position: center;
+    object-fit: cover;
+  }
+  
+  .room-card__bottom {
+    padding: 12px;
+  }
+  
+  .room-card__details {
+    font-size: 14px;
+  
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  
+    margin-bottom: 8px;
+  }
+  
+  .room-details__info-bold {
+    font-weight: 500;
+  }
+  

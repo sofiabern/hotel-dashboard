@@ -1,0 +1,36 @@
+.page-not-found {
+  text-align: center;
+}
+
+.page-not-found__title {
+  font-size: 28px;
+  margin-bottom: 12px;
+}
+
+@media(min-width: 455.9px){
+  .page-not-found__title {
+    font-size: 36px;
+  }
+}
+
+@media(min-width: 567.9px){
+  .page-not-found__title {
+    font-size: 48px;
+  }
+}
+
+.page-not-found__text {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.page-not-found__link {
+  font-size: 20px;
+  color: #000000;
+  font-weight: 500;
+  transition: all 0.3s ease-in-out;
+}
+
+.page-not-found__link:hover{
+  color:#62ae62;
+}

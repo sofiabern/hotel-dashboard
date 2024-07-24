@@ -1,0 +1,13 @@
+<section class="rooms">
+  <div class="container">
+    <h2 class="rooms__title">Available Rooms</h2>
+    <app-rooms-filter (filteredRoomsChange)="filterRooms($event)" [rooms]="rooms"></app-rooms-filter>
+    <app-rooms-list [rooms]="rooms"/>
+  </div>
+</section>
+
+@if(loading){
+<div class="rooms__loading">
+  <mat-spinner diameter="60"></mat-spinner>
+</div>
+}

@@ -1,0 +1,24 @@
+<li class="check-in-card">
+  <div class="check-in-card__details">
+    <ul class="check-in-details__list">
+      <li class="check-in-details__info-bold">{{ checkInBooking.isCheckIn ? 'Check-in' : 'Booking' }}
+      </li>
+      <li class="check-in-details__info"><span class="check-in-details__info-bold">Client name:</span> {{
+        checkInBooking.client.first_name }} {{ checkInBooking.client.middle_name }} {{ checkInBooking.client.last_name }}</li>
+      <li class="check-in-details__info"><span class="check-in-details__info-bold">Room number:</span> {{
+        checkInBooking.room.room_number }}</li>
+      <li class="check-in-details__info"><span class="check-in-details__info-bold">Check-in date:</span> {{
+        checkInBooking.check_in_date | date:'dd-MM-yyyy' }}</li>
+      <li class="check-in-details__info"><span class="check-in-details__info-bold">Check-out date:</span> {{
+        checkInBooking.check_out_date | date:'dd-MM-yyyy' }}</li>
+      <li class="check-in-details__info"><span class="check-in-details__info-bold">Total price per day:</span> ${{ checkInBooking.totalDayPrice}}</li>
+      <li class="check-in-details__info"><span class="check-in-details__info-bold">Total price:</span> ${{ checkInBooking.totalPrice}}</li>
+
+      <li class="check-in-details__info"><span class="check-in-details__info-bold">Note:</span> {{ checkInBooking.note ? checkInBooking.note : "No note" }}
+      </li>
+    </ul>
+
+  </div>
+<app-check-in-booking-buttons [checkInBooking]="checkInBooking"/>
+
+</li>

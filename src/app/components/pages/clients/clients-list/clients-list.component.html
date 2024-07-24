@@ -1,0 +1,5 @@
+<ul class="clients__list">
+  @for(client of clients; track client._id){
+  <app-client-card [client]="client" />
+  }
+</ul>

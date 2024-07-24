@@ -1,0 +1,17 @@
+<section class="clients">
+  <div class="container">
+    <h2 class="clients__title">Our Clients</h2>
+    <app-clients-filter></app-clients-filter>
+
+    <mat-paginator [length]="paginationInfo.totalItems" [pageSize]="perPage" [pageSizeOptions]="[6, 12, 36, 64]"
+    (page)="onPageChange($event)">
+  </mat-paginator>
+
+    <app-clients-list [clients]="clients"></app-clients-list>
+  </div>
+</section>
+@if(loading){
+<div class="clients__loading">
+  <mat-spinner diameter="60"></mat-spinner>
+</div>
+}

@@ -1,0 +1,20 @@
+<div class="mob-header__container" [class.mob-header__container--open]="isMobileMenuOpen" (click)="closeMobileMenu()">
+  <button class="mob-header__close-button" (click)="closeMobileMenu()">
+    <mat-icon aria-hidden="false" aria-label="Close icon" fontIcon="close"></mat-icon>
+  </button>
+  <ul class="mob-header__list">
+    <li class="mob-header__item">
+      <a class="mob-header__link" routerLink="/" (click)="closeMobileMenu()"  routerLinkActive="mob-header__link--active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    </li>
+    <li class="mob-header__item">
+      <a class="mob-header__link" routerLink="/rooms" (click)="closeMobileMenu()" routerLinkActive="mob-header__link--active">Available Rooms</a>
+    </li>
+    <li class="mob-header__item">
+      <a class="mob-header__link" routerLink="/check-ins-bookings" (click)="closeMobileMenu()" routerLinkActive="mob-header__link--active">Check-ins &
+        Bookings</a>
+    </li>
+    <li class="mob-header__item">
+      <a class="mob-header__link" routerLink="/clients" (click)="closeMobileMenu()" routerLinkActive="mob-header__link--active">Clients</a>
+    </li>
+  </ul>
+</div>

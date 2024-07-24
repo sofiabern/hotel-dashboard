@@ -1,0 +1,16 @@
+<div class="header__auth-buttons">
+  @if(!(isAuthenticated$ | async)){
+  <button class="auth-buttons__button auth-buttons__button-login" (click)="openLogInDialog()">Log In</button>
+  <button class="auth-buttons__button auth-buttons__button-signup" (click)="openSignUpDialog()">Sign Up</button>
+  }
+  @if(isAuthenticated$ | async){
+  <button class="auth-buttons__button auth-buttons__button-logout" (click)="logOut()">Log Out</button>
+
+  }
+
+</div>
+@if(loading){
+  <div class="auth-buttons__loading">
+    <mat-spinner diameter="60"></mat-spinner>
+  </div>
+}

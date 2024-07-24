@@ -1,0 +1,14 @@
+<li class="room-card">
+  <img [src]="room.image" alt="Room image" class="room-image" lazy-loading>
+
+  <div class="room-card__bottom">
+    <ul class="room-card__details">
+      <li class="room-details__info room-details__info-bold">Room {{ room.room_number }}</li>
+      <li class="room-details__info"><span class="room-details__info-bold">Capacity:</span> {{ room.capacity }}</li>
+      <li class="room-details__info"><span class="room-details__info-bold">Comfort:</span> {{ room.comfort_level }}</li>
+      <li class="room-details__info"><span class="room-details__info-bold">Price:</span> ${{ room.price }}</li>
+
+    </ul>
+    <app-room-buttons  [room]="room" />
+  </div>
+</li>

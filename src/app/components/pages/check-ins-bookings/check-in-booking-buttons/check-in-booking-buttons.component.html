@@ -1,0 +1,9 @@
+<div class="check-in-card__button-wrapper">
+  @if(checkInBooking.isCheckIn === false){
+  <button class="check-in-card__buttons check-in-card__btn--approve"
+    (click)="onApprove(checkInBooking._id)">Approve</button>
+  }
+  <button class="check-in-card__buttons check-in-card__btn--cancel"
+    (click)="openCancelModal(checkInBooking._id, checkInBooking.client.first_name, checkInBooking.client.middle_name, checkInBooking.client.last_name, checkInBooking.room.room_number )">Cancel</button>
+
+</div>
