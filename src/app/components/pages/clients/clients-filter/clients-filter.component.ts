@@ -34,8 +34,6 @@ export class ClientsFilterComponent implements OnInit{
   }
 
   resetFilter() {
-    this.searchTerm = '';
-    this.clientsService.setFilter('');
-    this.clientsService.fetchClients(1, 6);
+    window.location.reload();
   }
 }
