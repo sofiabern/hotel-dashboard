@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+
+// Types
 import { Client, ClientsPaginationApiResponse } from './clients.types';
+import { PaginationInfo } from '../../../common.types';
+
+// Services
 import { ClientsApiService } from '../../../api-services/clients.service';
 import { ToastrService } from 'ngx-toastr';
 
@@ -9,7 +14,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ClientsService {
 
-  private perPage: number = 6; 
+  private perPage: number = 6;
   private currentFilter: string = '';
 
   private clientsSubject = new BehaviorSubject<Client[]>([]);
@@ -18,17 +23,24 @@ export class ClientsService {
   private loadingSubject = new BehaviorSubject<boolean>(false);
   loading$ = this.loadingSubject.asObservable();
 
-  private paginationInfoSubject = new BehaviorSubject<any>({});
+  private paginationInfoSubject = new BehaviorSubject<PaginationInfo>({
+    page: 1,
+    perPage: 6,
+    totalItems: 6,
+    totalPages: 1,
+    hasPreviousPage: false,
+    hasNextPage: false,
+  });
   paginationInfo$ = this.paginationInfoSubject.asObservable();
 
   constructor(private clientsApiService: ClientsApiService, private toastr: ToastrService) { }
 
 
   fetchClients(page: number = 1, perPage: number = this.perPage, filter: string = this.currentFilter) {
-    this.perPage = perPage; 
-    this.currentFilter = filter; 
+    this.perPage = perPage;
+    this.currentFilter = filter;
     this.loadingSubject.next(true);
-    
+
     this.clientsApiService.getClients(page, perPage, filter).subscribe({
       next: (response: ClientsPaginationApiResponse) => {
         this.clientsSubject.next(response.data.clients);
@@ -52,7 +64,7 @@ export class ClientsService {
     });
   }
 
-   setFilter(filter: string) {
+  setFilter(filter: string) {
     this.currentFilter = filter;
   }
 

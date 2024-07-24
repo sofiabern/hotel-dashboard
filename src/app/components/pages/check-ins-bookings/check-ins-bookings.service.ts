@@ -3,6 +3,7 @@ import { BehaviorSubject } from 'rxjs';
 
 // Types
 import { CheckInBooking } from './check-ins-bookings.types';
+import { PaginationInfo } from '../../../common.types';
 
 // Service
 import { CheckInsBookingsApiService } from '../../../api-services/check-ins-bookings.service';
@@ -26,8 +27,14 @@ export class CheckInsBookingsService {
   private loadingSubject = new BehaviorSubject<boolean>(false);
   loading$ = this.loadingSubject.asObservable();
 
-  private paginationInfoSubject = new BehaviorSubject<any>({});
-  paginationInfo$ = this.paginationInfoSubject.asObservable();
+  private paginationInfoSubject = new BehaviorSubject<PaginationInfo>({
+    page: 1,
+    perPage: 6,
+    totalItems: 6,
+    totalPages: 1,
+    hasPreviousPage: false,
+    hasNextPage: false,
+  }); paginationInfo$ = this.paginationInfoSubject.asObservable();
 
   constructor(private checkInsBookingsApiService: CheckInsBookingsApiService, private toastr: ToastrService) { }
 

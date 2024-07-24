@@ -9,6 +9,8 @@ import { CheckInsBookingsListComponent } from './check-ins-bookings-list/check-i
 
 // Types
 import { CheckInBooking } from './check-ins-bookings.types';
+import { PaginationInfo } from '../../../common.types';
+
 
 // Services
 import { CheckInsBookingsService } from './check-ins-bookings.service';
@@ -36,7 +38,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 export class CheckInsBookingsComponent implements OnInit {
   checkInsBookings: CheckInBooking[] = [];
   loading: boolean = false;
-  paginationInfo: any = {};
+  paginationInfo!: PaginationInfo;
   currentPage: number = 1;
   perPage: number = 6;
 
