@@ -27,19 +27,30 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 export class RoomsComponent implements OnInit {
   rooms: Room[] = [];
-  loading = true;
+  startDate?: string;
+  endDate?: string;
+  comfortLevel?: string;
+  loading: boolean = false;
 
-  constructor(
-    private roomsService: RoomsService
-  ) {}
+  constructor(private roomsService: RoomsService) {}
 
   ngOnInit() {
-    this.roomsService.loading$.subscribe(loading => this.loading = loading);
-    this.roomsService.rooms$.subscribe(rooms => this.rooms = rooms);
-    this.roomsService.fetchRooms();
+    this.roomsService.loading$.subscribe((isLoading) => {
+      this.loading = isLoading;
+    });
+    this.roomsService.rooms$.subscribe((rooms) => {
+      this.rooms = rooms;
+    });
+    this.loadFilteredRooms();
   }
 
-  filterRooms(filteredRooms: Room[]) {
-    this.rooms = filteredRooms;
+  onFilterSubmit() {
+    this.roomsService.setFilterState(this.startDate, this.endDate, this.comfortLevel);
+    this.loadFilteredRooms();
+  }
+
+  loadFilteredRooms() {
+    const { startDate, endDate, comfortLevel } = this.roomsService.getFilterState();
+    this.roomsService.fetchRooms(startDate, endDate, comfortLevel);
   }
 }
