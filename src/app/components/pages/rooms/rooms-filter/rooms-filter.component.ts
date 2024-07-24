@@ -8,9 +8,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
 
-// Types
-import { Room } from '../rooms.types';
-
 // Services
 import { RoomsService } from '../rooms.service';
 
@@ -49,10 +46,6 @@ export class RoomsFilterComponent implements OnInit {
   }
 
   resetFilter() {
-    this.startDate = undefined;
-    this.endDate = undefined;
-    this.comfortLevel = undefined;
-    this.roomsService.setFilterState();
-    
+    window.location.reload();
   }
 }
