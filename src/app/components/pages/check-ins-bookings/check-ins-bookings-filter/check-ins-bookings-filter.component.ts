@@ -35,8 +35,6 @@ export class CheckInsBookingsFilterComponent implements OnInit {
   }
 
   resetFilter() {
-    this.searchTerm = '';
-    this.checkInsBookingsService.setFilter(''); 
-    this.checkInsBookingsService.fetchCheckIns(1, 6);
+    window.location.reload();
   }
 }
