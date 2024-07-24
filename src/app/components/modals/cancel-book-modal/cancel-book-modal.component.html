@@ -1,0 +1,14 @@
+<h1 mat-dialog-title class="cancel-modal__title">Confirm Cancellation</h1>
+<div mat-dialog-content class="cancel-modal__text">
+  <p>
+    Are you sure you want to cancel booking for
+    {{ data.checkInBookingFirstName }}
+    {{ data.checkInBookingMiddleName }}
+    {{ data.checkInBookingLastName }}
+    in room {{ data.checkInBookingRoomNumber }}?
+  </p>
+</div>
+<div mat-dialog-actions class="cancel-modal__buttton-wrapper">
+  <button (click)="onCancelClick()" class="cancel-modal__button--cancel cancel-modal__button ">Cancel</button>
+  <button (click)="onConfirmClick()" class="cancel-modal__button-confirm cancel-modal__button">Confirm</button>
+</div>

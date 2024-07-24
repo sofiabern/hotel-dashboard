@@ -1,0 +1,45 @@
+.cancel-modal__title {
+  margin-bottom: 36px;
+}
+
+.cancel-modal__text {
+  text-align: center;
+  margin-bottom: 24px;
+  font-size: 18px;
+}
+
+.cancel-modal__buttton-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.cancel-modal__button {
+  padding: 8px 0 8px 0;
+  width: 82px;
+  transition: all 0.3s ease-in-out;
+  font-size: 18px;
+}
+
+.cancel-modal__button--cancel {
+  color: #000000;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+}
+
+.cancel-modal__button-confirm {
+  color: #ffffff;
+  background-color: #000000;
+  border: 1px solid #000000;
+}
+
+.cancel-modal__button:hover {
+  background-color: #62ae62;
+  border-color: #62ae62;
+  color: #ffffff;
+}
+
+@media (max-width: 347.9px) {
+  ::ng-deep .mdc-dialog--open .mat-mdc-dialog-surface {
+    width: 92%;
+  }
+}
