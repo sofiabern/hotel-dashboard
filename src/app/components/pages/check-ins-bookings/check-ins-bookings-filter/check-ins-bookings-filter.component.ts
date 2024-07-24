@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
-// Types
-import { CheckInBooking } from '../check-ins-bookings.types';
-
 // Services
 import { CheckInsBookingsService } from '../check-ins-bookings.service';
 
-// Modal
+// Material
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 

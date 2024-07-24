@@ -13,7 +13,7 @@ import { ClientsService } from './clients.service';
 // Types
 import { Client } from './clients.types';
 
-// Etc
+// Material
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
 

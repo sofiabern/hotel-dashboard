@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 
-
+// Material
 import { MatIconModule } from '@angular/material/icon';
 
 // Components
@@ -14,6 +14,8 @@ import { UserGreetingComponent } from './user-greeting/user-greeting.component';
 
 // Services
 import { AuthApiService } from '../../auth/auth.service';
+
+
 
 @Component({
   selector: 'app-header',

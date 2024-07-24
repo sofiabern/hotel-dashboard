@@ -9,7 +9,7 @@ import { CheckInBooking } from '../check-ins-bookings.types';
 // Services
 import { CheckInsBookingsService } from '../check-ins-bookings.service';
 
-// Modal
+// Material
 import { MatDialog } from '@angular/material/dialog';
 
 

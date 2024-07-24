@@ -13,7 +13,7 @@ import { CheckInBooking } from './check-ins-bookings.types';
 // Services
 import { CheckInsBookingsService } from './check-ins-bookings.service';
 
-// Etc
+// Material
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
 
