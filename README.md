@@ -11,7 +11,7 @@ This project is the frontend for the Hotel Management Dashboard. It is built usi
 - [Further Help](#further-help)
 
 ## Demo
-You can access the live demo of the application here: [Hotel Management Dashboard Frontend](hhttps://hotel-dashboard-iota.vercel.app/)
+You can access the live demo of the application here: [Hotel Management Dashboard Frontend](https://hotel-dashboard-iota.vercel.app/)
 
 ## Features
 - **User Authentication:** Login and registration for hotel staff.
