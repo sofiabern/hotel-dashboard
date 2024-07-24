@@ -1,0 +1,22 @@
+<li class="client-card">
+  <ul class="client-details__list">
+    <li class="client-details__info"><span class="client-details__info-bold">Name:</span> {{ client.first_name }}
+      {{ client.middle_name }} {{ client.last_name }}</li>
+    <li class="client-details__info"><span class="client-details__info-bold">Passport number:</span> {{
+      client.passport_details }}</li>
+    <li class="client-details__info"><span class="client-details__info-bold">Amount of visits:</span> {{
+      client.visitsAmount }}</li>
+    <li class="client-details__info"><span class="client-details__info-bold">Regular customer discount:</span>
+      {{client.discounts.regularCustomer || 0}}%
+    </li>
+    <li class="client-details__info"><span class="client-details__info-bold">Military discount:</span>
+      {{client.discounts.military || 0}}%
+    </li>
+    <li class="client-details__info"><span class="client-details__info-bold">Guardian discount:</span>
+      {{client.discounts.guardian || 0}}%
+    </li>
+    <li class="client-details__info"><span class="client-details__info-bold">Total discount:</span>
+      {{client.totalDiscount || 0}}%
+    </li>
+  </ul>
+</li>

@@ -1,0 +1,12 @@
+:host{
+  display: block;
+  margin-top: 24px;
+}
+
+.clients__list{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+

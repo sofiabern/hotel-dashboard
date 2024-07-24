@@ -1,0 +1,19 @@
+<form class="clients__filter-container" (ngSubmit)="applyFilter()" #filterForm="ngForm">
+  <mat-form-field appearance="outline" class="clients__filter-field">
+    <mat-label>Search</mat-label>
+    <input
+      matInput
+      required
+      type="text"
+      [(ngModel)]="searchTerm"
+      name="searchTerm"
+      #searchInput="ngModel"
+      placeholder="Search by name or room number"
+      class="clients__filter"
+    />
+  </mat-form-field>
+  <div class="clients__buttons-wrapper">
+    <button type="submit" class="clients__button clients__filter-button" [disabled]="!filterForm.valid">Search</button>
+    <button type="button" (click)="resetFilter()" class="clients__button clients__show-button">Show All</button>
+  </div>
+</form>
