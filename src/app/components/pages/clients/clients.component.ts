@@ -12,6 +12,8 @@ import { ClientsService } from './clients.service';
 
 // Types
 import { Client } from './clients.types';
+import { PaginationInfo } from '../../../common.types';
+
 
 // Material
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
@@ -36,7 +38,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 export class ClientsComponent implements OnInit {
   clients: Client[] = [];
   loading: boolean = false;
-  paginationInfo: any = {};
+  paginationInfo!: PaginationInfo ;
   currentPage: number = 1;
   perPage: number = 6;
 

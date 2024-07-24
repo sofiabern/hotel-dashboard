@@ -77,7 +77,7 @@ export class CheckInModalComponent {
     }
 
     if (checkInForm.valid) {
-      const hasIntersection = this.data.room.bookingsAndCheckIns.some((item: any) => {
+      const hasIntersection = this.data.room.bookingsAndCheckIns.some((item) => {
         const bookingCheckInDate = new Date(item.check_in_date);
         const bookingCheckOutDate = new Date(item.check_out_date);
         return (
