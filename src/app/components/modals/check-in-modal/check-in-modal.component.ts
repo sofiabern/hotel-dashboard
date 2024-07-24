@@ -101,7 +101,7 @@ export class CheckInModalComponent {
         room: this.data.room._id,
         check_in_date: this.startDate,
         check_out_date: this.endDate,
-        isCheckIn: false,
+        isCheckIn: true,
         discounts: {
           regularCustomer: this.discounts.regularCustomer,
           military: this.discounts.military,
