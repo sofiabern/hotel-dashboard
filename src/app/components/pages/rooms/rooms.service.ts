@@ -1,13 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-
-// Types
 import { Room } from './rooms.types';
-
-// Service
 import { RoomsApiService } from '../../../api-services/rooms.service';
-
-// Etc
 import { ToastrService } from 'ngx-toastr';
 
 

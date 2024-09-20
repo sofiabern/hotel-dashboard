@@ -2,17 +2,11 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
-
-// Material
 import { MatIconModule } from '@angular/material/icon';
-
-// Components
 import { AuthButtonsComponent } from './auth-buttons/auth-buttons.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { MobileNavMenuComponent } from './mobile-nav-menu/mobile-nav-menu.component';
 import { UserGreetingComponent } from './user-greeting/user-greeting.component';
-
-// Services
 import { AuthApiService } from '../../auth/auth.service';
 
 
@@ -32,9 +26,6 @@ export class HeaderComponent {
   constructor(private authService: AuthApiService) {
     this.isAuthenticated$ = this.authService.isAuthenticated$;
   }
-
-
-
 
   openMobileMenu(): void {
     this.isMobileMenuOpen = true;

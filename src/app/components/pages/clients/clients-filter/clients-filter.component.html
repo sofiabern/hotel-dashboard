@@ -13,7 +13,7 @@
     />
   </mat-form-field>
   <div class="clients__buttons-wrapper">
-    <button type="submit" class="clients__button clients__filter-button" [disabled]="!filterForm.valid">Search</button>
+    <button type="submit" class="clients__button clients__filter-button" [disabled]="loading" [disabled]="!filterForm.valid">Search</button>
     <button type="button" (click)="resetFilter()" class="clients__button clients__reset-button">Reset</button>
   </div>
 </form>

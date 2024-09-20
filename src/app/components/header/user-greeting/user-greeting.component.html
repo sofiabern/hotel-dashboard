@@ -1,5 +1,4 @@
-@if(isAuthenticated$ && userName$ | async){
+@if(isAuthenticated$ && (userName$ | async)){
 <div class="user-greeting">
-  <p>Hello, {{ userName$ | async }}!</p>
-</div>
+  <p>Hello, {{ ((userName$ | async)!.length > 15) ? ((userName$ | async)!.slice(0, 12) + '...') : userName$ | async }}</p></div>
 }

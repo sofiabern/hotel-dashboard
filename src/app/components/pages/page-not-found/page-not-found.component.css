@@ -4,6 +4,7 @@
 
 .page-not-found__title {
   font-size: 28px;
+
   margin-bottom: 12px;
 }
 
@@ -21,6 +22,7 @@
 
 .page-not-found__text {
   font-size: 18px;
+
   margin-bottom: 12px;
 }
 
@@ -28,6 +30,7 @@
   font-size: 20px;
   color: #000000;
   font-weight: 500;
+  
   transition: all 0.3s ease-in-out;
 }
 

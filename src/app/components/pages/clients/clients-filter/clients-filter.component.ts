@@ -1,10 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-// Services
 import { ClientsService } from '../clients.service';
-
-// Material
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 
@@ -19,6 +15,8 @@ import { MatInputModule } from '@angular/material/input';
 })
 export class ClientsFilterComponent implements OnInit{
   searchTerm: string = '';
+  loading: boolean = false;
+
 
   constructor(private clientsService : ClientsService){
 
@@ -26,6 +24,8 @@ export class ClientsFilterComponent implements OnInit{
 
   ngOnInit() {
     this.searchTerm = this.clientsService.getFilter();
+    this.clientsService.loading$.subscribe(loading => this.loading = loading);
+
   }
 
   applyFilter() {

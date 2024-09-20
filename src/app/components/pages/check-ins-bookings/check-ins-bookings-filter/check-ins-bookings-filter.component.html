@@ -13,7 +13,7 @@
     />
   </mat-form-field>
   <div class="check-ins__buttons-wrapper">
-    <button type="submit" class="check-ins__button check-ins__filter-button" [disabled]="!filterForm.valid">Search</button>
+    <button type="submit" class="check-ins__button check-ins__filter-button" [disabled]="loading" [disabled]="!filterForm.valid">Search</button>
     <button type="button" (click)="resetFilter()" class="check-ins__button check-ins__reset-button">Reset</button>
   </div>
 </form>

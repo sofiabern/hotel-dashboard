@@ -1,9 +1,5 @@
 import { Component, Inject } from '@angular/core';
-
-// Services
 import { CheckInsBookingsService } from '../../pages/check-ins-bookings/check-ins-bookings.service';
-
-// Material
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 
@@ -24,7 +20,8 @@ export class CancelBookModalComponent {
       checkInBookingFirstName: string,
       checkInBookingMiddleName: undefined | string,
       checkInBookingLastName: string,
-      checkInBookingRoomNumber: number
+      checkInBookingRoomNumber: number,
+      isCheckIn: boolean
     },
     private checkInsBookingsService: CheckInsBookingsService,
   ) { }

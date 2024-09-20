@@ -1,17 +1,8 @@
 import { Component, Input } from '@angular/core';
-
-// Componenets
-import { BookModalComponent } from '../../../modals/book-modal/book-modal.component';
-import { CheckInModalComponent } from '../../../modals/check-in-modal/check-in-modal.component';
-
-// Types
 import { Room } from '../rooms.types';
-
-// Services
 import { RoomsService } from '../rooms.service';
-
-// Material
 import { MatDialog } from '@angular/material/dialog';
+import { ReusableModalComponent } from '../../../modals/reusable-modal/reusable-modal.component';
 
 
 
@@ -28,16 +19,18 @@ export class RoomButtonsComponent {
   constructor(
     private dialog: MatDialog,
     private roomsService: RoomsService
-  ) {}
+  ) { }
 
-  openBookModal(room: Room): void {
-    const dialogBookRef = this.dialog.open(BookModalComponent, {
+  openModal(room: Room, type: 'checkIn' | 'booking'): void {
+    const isCheckIn = type === 'checkIn';
+
+    const dialogRef = this.dialog.open(ReusableModalComponent, {
       disableClose: false,
       autoFocus: false,
-      data: { room }
+      data: { room, isCheckIn }
     });
 
-    dialogBookRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(result => {
       if (result) {
         const { startDate, endDate, comfortLevel } = this.roomsService.getFilterState();
         this.roomsService.fetchRooms(startDate, endDate, comfortLevel);
@@ -45,18 +38,4 @@ export class RoomButtonsComponent {
     });
   }
 
-  openCheckInModal(room: Room): void {
-    const dialogCheckInRef = this.dialog.open(CheckInModalComponent, {
-      disableClose: false,
-      autoFocus: false,
-      data: { room }
-    });
-
-    dialogCheckInRef.afterClosed().subscribe(result => {
-      if (result) {
-        const { startDate, endDate, comfortLevel } = this.roomsService.getFilterState();
-        this.roomsService.fetchRooms(startDate, endDate, comfortLevel);
-      }
-    });
-  }
 }

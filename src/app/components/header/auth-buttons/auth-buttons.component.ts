@@ -2,24 +2,18 @@ import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 import { ComponentType } from '@angular/cdk/portal';
-
-// Components
 import { SignUpModalComponent } from '../../modals/sign-up-modal/sign-up-modal.component';
 import { LogInModalComponent } from '../../modals/log-in-modal/log-in-modal.component';
-
-// Services
 import { AuthApiService } from '../../../auth/auth.service';
-
-// Material
 import { MatDialog } from '@angular/material/dialog';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { LoaderComponent } from '../../loader/loader.component';
 
 
 @Component({
   selector: 'app-auth-buttons',
   standalone: true,
-  imports: [AsyncPipe, MatProgressSpinnerModule],
+  imports: [AsyncPipe, MatProgressSpinnerModule, LoaderComponent],
   templateUrl: './auth-buttons.component.html',
   styleUrls: ['./auth-buttons.component.css']
 })

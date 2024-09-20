@@ -33,9 +33,12 @@
 }
 
 .header__menu-btn {
-  display: inline-flex;
   background-color: transparent;
+
+  display: inline-flex;
+
   border: none;
+  
   transition: transform 300ms ease-in-out;
 }
 

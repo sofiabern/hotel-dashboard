@@ -3,9 +3,11 @@
 }
 
 .cancel-modal__text {
-  text-align: center;
-  margin-bottom: 24px;
   font-size: 18px;
+  text-align: center;
+
+  margin-bottom: 24px;
+
 }
 
 .cancel-modal__buttton-wrapper {
@@ -14,28 +16,36 @@
 }
 
 .cancel-modal__button {
+  font-size: 18px;
+
   padding: 8px 0 8px 0;
   width: 82px;
+
   transition: all 0.3s ease-in-out;
-  font-size: 18px;
 }
 
 .cancel-modal__button--cancel {
   color: #000000;
+
   background-color: #ffffff;
+
   border: 1px solid #000000;
 }
 
 .cancel-modal__button-confirm {
   color: #ffffff;
+
   background-color: #000000;
+
   border: 1px solid #000000;
 }
 
 .cancel-modal__button:hover {
-  background-color: #62ae62;
-  border-color: #62ae62;
   color: #ffffff;
+  
+  background-color: #62ae62;
+
+  border-color: #62ae62;
 }
 
 @media (max-width: 657.9px) {

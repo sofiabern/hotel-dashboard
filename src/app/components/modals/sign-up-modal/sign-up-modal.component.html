@@ -29,14 +29,12 @@
     </div>
 
 
-    <button type="submit" class="sign-up-modal__submit-btn">Sign Up</button>
+    <button type="submit" class="sign-up-modal__submit-btn" [disabled]="loading">Sign Up</button>
   </form>
-  <button mat-dialog-close aria-label="Close" class="sign-up-modal__close-btn">
+  <button mat-dialog-close aria-label="Close" class="sign-up-modal__close-btn"  >
     <mat-icon>close</mat-icon>
   </button>
 </div>
 @if(loading){
-  <div class="sign-up__loading">
-    <mat-spinner diameter="60"></mat-spinner>
-  </div>
-}
+  <app-loader/>
+  }

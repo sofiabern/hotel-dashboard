@@ -4,6 +4,7 @@
 
 .authorization__title {
   font-size: 28px;
+
   margin-bottom: 12px;
 }
 
@@ -20,5 +21,6 @@
 }
 .authorization__text {
   font-size: 18px;
+  
   margin-bottom: 12px;
 }

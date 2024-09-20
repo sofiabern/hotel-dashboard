@@ -24,14 +24,12 @@
     </div>
 
 
-    <button type="submit" class="log-in-modal__submit-btn">Log In</button>
+    <button type="submit" class="log-in-modal__submit-btn" [disabled]="loading">Log In</button>
   </form>
-  <button mat-dialog-close aria-label="Close" class="log-in-modal__close-btn">
+  <button mat-dialog-close aria-label="Close" class="log-in-modal__close-btn"  >
     <mat-icon>close</mat-icon>
   </button>
 </div>
 @if(loading){
-  <div class="log-in__loading">
-    <mat-spinner diameter="60"></mat-spinner>
-  </div>
-}
+  <app-loader/>
+  }

@@ -1,0 +1,99 @@
+<div>
+  <h1 class="reusable-modal__title">
+    @if(this.data.isCheckIn){
+    Create Check-in
+    }@else {
+    Book a room
+    }
+  </h1>
+  <form #reusableForm="ngForm" (ngSubmit)="submitForm(reusableForm)" class="reusable-modal__form">
+
+    <div class="reusable-modal__name-wrapper">
+      <mat-form-field appearance="outline">
+        <mat-label>First Name</mat-label>
+        <input matInput type="text" required name="firstName" ngModel />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Middle Name</mat-label>
+        <input matInput type="text" name="middleName" ngModel />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput type="text" required name="lastName" ngModel />
+      </mat-form-field>
+    </div>
+
+    <div class="reusable-modal__other-wrapper">
+      <div class="reusable-modal__info-wrapper">
+
+        <div class="reusable-modal__discount-block">
+          <mat-form-field appearance="outline" class="reusable-modal__field">
+            <mat-label>Passport Number</mat-label>
+            <input matInput type="text" required name="passportNumber" [(ngModel)]="passportNumber" />
+          </mat-form-field>
+          <button type="button" class="reusable-modal__check-btn" (click)="onCheckDiscount()">Check discount</button>
+        </div>
+
+        <mat-form-field class="reusable-modal__field" appearance="outline">
+          <mat-label>Enter dates*</mat-label>
+          <mat-date-range-input [rangePicker]="picker">
+            <input required matStartDate placeholder="Check-in date" ngModel name="startDate" [(ngModel)]="startDate"
+              (dateChange)="calculateTotalDiscountAndPrice()">
+            <input required matEndDate placeholder="Check-out date" ngModel name="endDate" [(ngModel)]="endDate"
+              (dateChange)="calculateTotalDiscountAndPrice()">
+          </mat-date-range-input>
+          <mat-hint>MM/DD/YYYY - MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-date-range-picker #picker></mat-date-range-picker>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="reusable-modal__field">
+          <mat-label>Comment</mat-label>
+          <textarea matInput type="text" name="comment" ngModel class="reusable-modal__comment"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="reusable-modal__discount-wrapper">
+
+        @if(visitsAmount === 0){
+        <p> This person has never visited our hotel</p>
+
+        }
+        @if(visitsAmount > 0) {
+        <p> The amount of visits: {{ visitsAmount }}</p>
+        }
+        @if(visitsAmount >= 0){
+        <div class="reusable-modal__dicounts">
+          <mat-checkbox [disabled]="visitsAmount < 4" (change)="onDiscountChange('regularCustomer', $event.checked)">
+            Regular Customer - 15%
+          </mat-checkbox>
+          <mat-checkbox (change)="onDiscountChange('military', $event.checked)">
+            Military - 30%
+          </mat-checkbox>
+          <mat-checkbox (change)="onDiscountChange('guardian', $event.checked)">
+            Guardian of three and more children - 10%
+          </mat-checkbox>
+
+        </div>
+        <p class="reusable-modal__discount-text">Total Discount: {{ totalDiscount }}%</p>
+        <p class="reusable-modal__discount-text">Total price for the room per day: ${{ totalDayPrice }}</p>
+        @if(totalPrice){
+        <p class="reusable-modal__discount-text">Total price for chosen time period: ${{totalPrice}}</p>
+        }
+
+        }
+
+      </div>
+    </div>
+    <button type="submit" class="reusable-modal__submit-btn">
+      @if(this.data.isCheckIn){
+      Create
+      }@else {
+      Book
+      }</button>
+  </form>
+  <button mat-dialog-close aria-label="Close" class="reusable-modal__close-btn">
+    <mat-icon>close</mat-icon>
+  </button>
+</div>

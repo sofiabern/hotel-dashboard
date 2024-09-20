@@ -8,14 +8,16 @@
 
 
 .sign-up-modal__close-btn{
+  background-color: transparent;
+
+  border: none;
+  padding: 4px;
+
   position: absolute;
   top: 8px;
   right: 8px;
-  border: none;
-  background-color: transparent;
-  padding: 4px;
-  transition: all 0.3s ease-in-out;
 
+  transition: all 0.3s ease-in-out;
 }
 
 .sign-up-modal__close-btn:hover{
@@ -23,22 +25,28 @@
 }
 
 .sign-up-modal__submit-btn {
-  display: block;
   font-size: 16px;
+  color: #ffffff;
+
+  background-color: #000000;
+
+  display: block;
+
   margin: 0 auto;
   padding: 6px 0 6px 0;
   width: 82px;
-  color: #ffffff;
-  background-color: #000000;
   border: 1px solid #000000;
+
   transition: all 0.3s ease-in-out;
 }
 
 
 .sign-up-modal__submit-btn:hover {
-  background-color: #62ae62;
-  border-color: #62ae62;
   color: #ffffff;
+
+  background-color: #62ae62;
+  
+  border-color: #62ae62;
 }
 
 @media(max-width: 347.9px){

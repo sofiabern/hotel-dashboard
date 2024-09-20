@@ -3,11 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { BehaviorSubject, Observable, throwError } from 'rxjs';
 import { catchError, tap, switchMap } from 'rxjs/operators';
 import { Router } from '@angular/router';
-
-// Types
 import { User, SignupApiResponse, LoginApiResponse } from './user.types';
-
-// Etc
 import { ToastrService } from 'ngx-toastr';
 
 

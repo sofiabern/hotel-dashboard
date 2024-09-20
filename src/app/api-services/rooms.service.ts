@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
-
-// Types
 import { RoomsApiResponse} from '../components/pages/rooms/rooms.types';
 
 
@@ -17,7 +15,7 @@ export class RoomsApiService {
 
   getRooms(checkInDate?: string, checkOutDate?: string, comfortLevel?: string): Observable<RoomsApiResponse> {
     let params = new HttpParams();
-    
+
     if (checkInDate) {
       params = params.append('checkInDate', checkInDate);
     }
