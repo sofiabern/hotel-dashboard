@@ -1,10 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-// Components
 import { CheckInBookingButtonsComponent } from '../check-in-booking-buttons/check-in-booking-buttons.component';
-
-// Types
 import { CheckInBooking } from '../check-ins-bookings.types';
 
 

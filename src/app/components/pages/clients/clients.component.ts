@@ -2,23 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PageEvent } from '@angular/material/paginator';
-
-// Components
 import { ClientsListComponent } from './clients-list/clients-list.component';
 import { ClientsFilterComponent } from './clients-filter/clients-filter.component';
-
-// Services
 import { ClientsService } from './clients.service';
-
-// Types
 import { Client } from './clients.types';
 import { PaginationInfo } from '../../../common.types';
-
-
-// Material
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import { LoaderComponent } from '../../loader/loader.component';
 
 
 @Component({
@@ -27,10 +17,10 @@ import { MatPaginatorModule } from '@angular/material/paginator';
   imports: [
     CommonModule,
     FormsModule,
-    MatProgressSpinnerModule,
     MatPaginatorModule,
     ClientsListComponent,
-    ClientsFilterComponent
+    ClientsFilterComponent,
+    LoaderComponent
   ],
   templateUrl: './clients.component.html',
   styleUrls: ['./clients.component.css']
@@ -77,14 +67,14 @@ export class ClientsComponent implements OnInit {
   }
 
   onPageChange(event: PageEvent) {
-    this.currentPage = event.pageIndex + 1; 
+    this.currentPage = event.pageIndex + 1;
     this.perPage = event.pageSize;
     this.loadClients(this.currentPage);
   }
 
   applyFilter(filterValue: string) {
     this.clientsService.setFilter(filterValue);
-    this.loadClients(1); 
+    this.loadClients(1);
   }
 
   resetFilter() {

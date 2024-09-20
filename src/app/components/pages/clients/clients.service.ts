@@ -1,13 +1,11 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-
-// Types
 import { Client, ClientsPaginationApiResponse } from './clients.types';
 import { PaginationInfo } from '../../../common.types';
-
-// Services
 import { ClientsApiService } from '../../../api-services/clients.service';
 import { ToastrService } from 'ngx-toastr';
+
+
 
 @Injectable({
   providedIn: 'root'

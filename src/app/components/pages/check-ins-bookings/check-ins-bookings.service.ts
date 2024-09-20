@@ -1,14 +1,8 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-
-// Types
 import { CheckInBooking } from './check-ins-bookings.types';
 import { PaginationInfo } from '../../../common.types';
-
-// Service
 import { CheckInsBookingsApiService } from '../../../api-services/check-ins-bookings.service';
-
-// Etc
 import { ToastrService } from 'ngx-toastr';
 
 
@@ -45,7 +39,7 @@ export class CheckInsBookingsService {
     this.perPage = perPage;
     this.currentFilter = filter;
     this.loadingSubject.next(true);
-    this.checkInsBookingsApiService.getCheckIns(page, perPage, filter).subscribe({
+    this.checkInsBookingsApiService.getCheckInsBookings(page, perPage, filter).subscribe({
       next: (response) => {
         this.checkInsBookingsSubject.next(response.data.checkIns);
         this.paginationInfoSubject.next({
@@ -68,7 +62,7 @@ export class CheckInsBookingsService {
     });
   }
 
-  getCheckIns(): CheckInBooking[] {
+  getCheckInsBookings(): CheckInBooking[] {
     return this.checkInsBookingsSubject.value;
   }
   getPerPage(): number {
@@ -92,30 +86,30 @@ export class CheckInsBookingsService {
     const updateData: Partial<CheckInBooking> = {
       isCheckIn: true
     };
-    this.checkInsBookingsApiService.updateCheckIn(checkInId, updateData).subscribe({
+    this.checkInsBookingsApiService.updateCheckInBooking(checkInId, updateData).subscribe({
       next: () => {
         this.fetchCheckIns();
-        this.toastr.success('Check-in approved successfully!');
+        this.toastr.success('Approval was successful!');
       },
       error: (error) => {
         this.loadingSubject.next(false);
         console.error(error);
-        this.toastr.error('Oops! Something went wrong while approving check-in.');
+        this.toastr.error('Oops! Something went wrong while approving.');
       }
     });
   }
 
   cancelCheckIn(checkInId: string) {
     this.loadingSubject.next(true);
-    this.checkInsBookingsApiService.deleteCheckIn(checkInId).subscribe({
+    this.checkInsBookingsApiService.deleteCheckInBooking(checkInId).subscribe({
       next: () => {
         this.fetchCheckIns();
-        this.toastr.success('Check-in cancelled successfully!');
+        this.toastr.success('Cancellation was successful!');
       },
       error: (error) => {
         this.loadingSubject.next(false);
         console.error(error);
-        this.toastr.error('Oops! Something went wrong while cancelling check-in.');
+        this.toastr.error('Oops! Something went wrong while cancelling.');
       }
     });
   }

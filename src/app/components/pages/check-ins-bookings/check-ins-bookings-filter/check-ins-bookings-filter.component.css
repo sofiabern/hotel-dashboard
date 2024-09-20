@@ -1,5 +1,6 @@
 :host {
   display: block;
+
   margin-bottom: 24px;
 }
 
@@ -65,8 +66,9 @@
 .check-ins__button{
   padding: 6px 0px 6px 0px;
   width: 68px;
-  transition: all 0.3s ease-in-out;
   border-radius: 24px;
+
+  transition: all 0.3s ease-in-out;
 }
 
 @media (min-width: 768px){
@@ -77,18 +79,24 @@
 
 .check-ins__filter-button{
   color: #000000;
+
   background-color: #ffffff;
+
   border: 1px solid #000000;
 }
 
 .check-ins__reset-button {
   color: #ffffff;
+
   background-color: #000000;
+
   border: 1px solid #000000;
 }
 
 .check-ins__button:hover {
-  background-color: #62ae62;
-  border-color: #62ae62;
   color: #ffffff;
+
+  background-color: #62ae62;
+
+  border-color: #62ae62;
 }

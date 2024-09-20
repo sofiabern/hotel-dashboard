@@ -1,9 +1,5 @@
 import { Component, Input } from '@angular/core';
-
-// Components
 import { ClientsCardComponent } from '../client-card/client-card.component';
-
-// Types
 import { Client } from '../clients.types';
 
 

@@ -1,19 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-
-// Form
 import { FormsModule } from '@angular/forms';
-
-// Material
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { provideNativeDateAdapter } from '@angular/material/core';
-
-// Services
 import { RoomsService } from '../rooms.service';
-
-// Etc
 import { ToastrService } from 'ngx-toastr';
 
 
@@ -30,6 +22,7 @@ export class RoomsFilterComponent implements OnInit {
   startDate?: string;
   endDate?: string;
   comfortLevel?: string;
+  loading: boolean = false;
 
   constructor(private roomsService: RoomsService, private toastr: ToastrService) {}
 
@@ -38,11 +31,14 @@ export class RoomsFilterComponent implements OnInit {
     this.startDate = filterState.startDate;
     this.endDate = filterState.endDate;
     this.comfortLevel = filterState.comfortLevel;
+    this.roomsService.loading$.subscribe((isLoading) => {
+      this.loading = isLoading;
+    });
   }
 
   applyFilter() {
 
-    
+
     this.roomsService.setFilterState(this.startDate, this.endDate, this.comfortLevel);
     this.roomsService.fetchRooms(this.startDate, this.endDate, this.comfortLevel);
   }

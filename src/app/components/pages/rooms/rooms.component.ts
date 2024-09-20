@@ -1,26 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
-// Components
 import { RoomsFilterComponent } from './rooms-filter/rooms-filter.component';
 import { RoomsListComponent } from './rooms-list/rooms-list.component';
-
-// Services
 import { RoomsService } from './rooms.service';
-
-// Types
 import { Room } from './rooms.types';
-
-// Material
-import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-
+import { LoaderComponent } from '../../loader/loader.component';
 
 
 @Component({
   selector: 'app-rooms',
   standalone: true,
-  imports: [CommonModule, MatProgressSpinnerModule, FormsModule, RoomsFilterComponent, RoomsListComponent],
+  imports: [CommonModule, FormsModule, RoomsFilterComponent, RoomsListComponent, LoaderComponent],
   templateUrl: './rooms.component.html',
   styleUrls: ['./rooms.component.css'],
 })

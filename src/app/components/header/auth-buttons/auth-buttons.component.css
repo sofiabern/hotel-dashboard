@@ -12,6 +12,7 @@
 .auth-buttons__button {
   padding: 6px 0px 6px 0px;
   width: 64px;
+
   transition: all 0.3s ease-in-out;
 }
 
@@ -25,6 +26,7 @@
 @media (min-width: 1158px) {
   .auth-buttons__button {
   font-size: 18px;
+
   width: 82px
   }
 }
@@ -32,26 +34,24 @@
 .auth-buttons__button-login,
 .auth-buttons__button-logout {
   color: #000000;
+
   background-color: #ffffff;
+
   border: 1px solid #000000;
 }
 
 .auth-buttons__button-signup {
   color: #ffffff;
+
   background-color: #000000;
+
   border: 1px solid #000000;
 }
 
 .auth-buttons__button:hover {
-  background-color: #62ae62;
-  border-color: #62ae62;
   color: #ffffff;
-}
 
-.auth-buttons__loading{
-  position: absolute;
-  z-index: 100;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  background-color: #62ae62;
+
+  border-color: #62ae62;
 }

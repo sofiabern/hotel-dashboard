@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
-
-// Services
 import { AuthApiService } from '../../../auth/auth.service';
 
 

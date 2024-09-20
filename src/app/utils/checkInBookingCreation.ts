@@ -1,6 +1,8 @@
 import { isBefore, isAfter, isEqual } from 'date-fns';
 import { ToastrService } from 'ngx-toastr';
 
+
+
 export function calculateTotalDiscountAndPrice(discounts: { regularCustomer: number; military: number; guardian: number; }, roomPrice: number, startDate: Date, endDate: Date): { totalDiscount: number, totalDayPrice: number, totalPrice: number } {
   const totalDiscount = discounts.regularCustomer + discounts.military + discounts.guardian;
   const totalDayPrice = totalDiscount ? Math.round(roomPrice * (1 - totalDiscount / 100)) : roomPrice;

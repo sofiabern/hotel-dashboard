@@ -1,15 +1,7 @@
 import { Component, Input } from '@angular/core';
-
-// Components
 import { CancelBookModalComponent } from '../../../modals/cancel-book-modal/cancel-book-modal.component';
-
-//Types
 import { CheckInBooking } from '../check-ins-bookings.types';
-
-// Services
 import { CheckInsBookingsService } from '../check-ins-bookings.service';
-
-// Material
 import { MatDialog } from '@angular/material/dialog';
 
 
@@ -31,7 +23,7 @@ export class CheckInBookingButtonsComponent {
     this.checkInsBookingsService.approveCheckIn(checkInId);
   }
 
-  openCancelModal(checkInBookingId: string, checkInBookingFirstName: string, checkInBookingMiddleName: string | undefined, checkInBookingLastName: string, checkInBookingRoomNumber: number): void {
+  openCancelModal(checkInBookingId: string, checkInBookingFirstName: string, checkInBookingMiddleName: string | undefined, checkInBookingLastName: string, checkInBookingRoomNumber: number, isCheckIn: boolean): void {
     const dialogBookRef = this.dialog.open(CancelBookModalComponent, {
       disableClose: false,
       autoFocus: false,
@@ -39,7 +31,8 @@ export class CheckInBookingButtonsComponent {
         checkInBookingId, checkInBookingFirstName,
         checkInBookingMiddleName,
         checkInBookingLastName,
-        checkInBookingRoomNumber
+        checkInBookingRoomNumber,
+        isCheckIn
       }
     });
 

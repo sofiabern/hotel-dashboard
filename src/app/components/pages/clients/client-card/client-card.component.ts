@@ -1,6 +1,4 @@
 import { Component, Input } from '@angular/core';
-
-// Types
 import { Client } from '../clients.types';
 
 
